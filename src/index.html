@@ -3,7 +3,13 @@
   <head>
     <meta charset="UTF-8">
     <title><%= htmlWebpackPlugin.options.title %></title>
+    <style>
+      body {
+        margin: 0;
+      }
+    </style>
     <link rel="stylesheet" type="text/css" href="bundle.css">
+    <link href='https://api.mapbox.com/mapbox-gl-js/v0.47.0/mapbox-gl.css' rel='stylesheet' />
   </head>
   <body>
     <% htmlWebpackPlugin.options.chartIDs.forEach(function(id){ %>

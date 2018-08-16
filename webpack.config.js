@@ -17,7 +17,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: '',
       chartIDs: [
-        ''
+        'viz__fcsp_mapping-financial-opportunity'
       ],
       inject: false,
       template: path.resolve(__dirname, 'src/index.html')

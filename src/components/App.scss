@@ -1,0 +1,15 @@
+.viz__overlay{
+  position: absolute;
+  height: 100vh;
+  width: 50vw;
+  top: 0;
+  right: 0;
+  background: #fff;
+  z-index: 1;
+}
+
+#viz__map{
+  z-index: 0;
+  width: 100vw;
+  height: 100vh;
+}

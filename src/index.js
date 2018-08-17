@@ -1,7 +1,11 @@
 import './index.scss';
-import './components/map';
-console.log('here');
+import App from './components/App';
+
+import React from 'react';
+import ReactDOM from 'react-dom';
 
 window.renderDataViz = function(el){
-
+  if(el){
+    ReactDOM.render(<App />, el);
+  }
 }

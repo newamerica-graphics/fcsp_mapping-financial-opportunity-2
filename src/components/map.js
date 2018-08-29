@@ -11,6 +11,7 @@ const renderMap = function(container){
   });
 
   map.on('load', () => {
+
       map.addLayer({
           'id': 'nbhds',
           'type': 'fill',
@@ -24,17 +25,19 @@ const renderMap = function(container){
             'fill-outline-color': 'rgba(51,51,51,0.5)'
           }
       });
-      console.log(map.getSource('nbhds'))
-      setTimeout(()=>{
-        console.log(map.querySourceFeatures('nbhds'));
-      }, 5000)
 
+      map.on('sourcedata', (e) => {
+        if(e.isSourceLoaded && e.sourceId == 'nbhds'){
+          let nbhds = map.queryRenderedFeatures({ layers: ['nbhds'] }).map(f => f.properties);
+          // this context is <App /> component
+          if(nbhds.length > 0) this.loadData(nbhds);
+        }
+      });
 
       map.on('mousemove', 'nbhds', (e)=>{
         if(e.features.length === 0) return;
-
+        // this context is <App /> component
         this.handleMousemove(e.features[0].properties);
-
       });
   });
 }

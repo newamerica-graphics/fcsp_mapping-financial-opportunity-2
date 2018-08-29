@@ -2,6 +2,7 @@ import './App.scss';
 
 import React from 'react';
 import renderMap from './map';
+import ScatterPlot from './scatterplot';
 
 import { sum } from '../lib/calc';
 
@@ -14,6 +15,10 @@ export default class App extends React.Component {
   }
   componentDidMount(){
     renderMap.bind(this)('viz__map');
+    // new ScatterPlot('#nbhd-scatterplot',{
+    //   x: (d) => ( 1 - d.estwhite ),
+    //   y: (d) => ( d.TotAltCred )
+    // }, data );
   }
 
   handleMousemove = (overlayData) => {
@@ -31,7 +36,12 @@ export default class App extends React.Component {
       <div className="viz">
         <div id="viz__map" />
         <div className="viz__overlay">
-          <h1>{PRI_NEIGH}</h1>
+          <div id="nbhd-scatterplot" className="nbhd-scatter-plot">
+
+          </div>
+          <div className="nbhd-info">
+            <h2>{PRI_NEIGH}</h2>
+          </div>
         </div>
       </div>
     );
